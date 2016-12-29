@@ -186,7 +186,7 @@
  
  @return Documents绝对路径
  */
-+ (NSString *)xh_documentsPath;
++ (NSString *)appDocumentsPath;
 
 
 /**
@@ -194,7 +194,7 @@
 
  @return cache绝对路径
  */
-+ (NSString *)xh_cachePath;
++ (NSString *)appCachePath;
 
 
 /**
@@ -202,7 +202,7 @@
 
  @return library绝对路径
  */
-+ (NSString *)xh_libraryPath;
++ (NSString *)appLibraryPath;
 
 /**
  3.4 打印Documents文件夹下面的文件列表

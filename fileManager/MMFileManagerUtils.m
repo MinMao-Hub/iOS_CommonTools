@@ -13,7 +13,7 @@
 
 + (void)createFileAtDocuments:(NSString *)filename  completed:(void (^)(BOOL isCreated, NSError *error))complete
 {
-    NSString *documentsPath = [MMFileManagerUtils xh_documentsPath];
+    NSString *documentsPath = [MMFileManagerUtils appDocumentsPath];
     
     [MMFileManagerUtils createFile:[documentsPath stringByAppendingPathComponent:filename] completed:^(BOOL isCreated, NSError *error) {
         if (complete) {
@@ -50,7 +50,7 @@
 
 + (void)createFileAtDocuments:(NSString *)filename withObject:(id)dataObject  completed:(void (^)(BOOL isCreated, NSError *error))complete
 {
-    NSString *documentsPath = [MMFileManagerUtils xh_documentsPath];
+    NSString *documentsPath = [MMFileManagerUtils appDocumentsPath];
     
     [MMFileManagerUtils createFileAtDocuments:[documentsPath stringByAppendingPathComponent:filename] withObject:dataObject completed:^(BOOL isCreated, NSError *error) {
         complete(isCreated, error);
@@ -101,7 +101,7 @@
 
 + (void)removeFileAtDocuments:(NSString *)filename completed:(void (^)(BOOL isRemoved, NSError *error))complete {
     
-    NSString *documentsPath = [MMFileManagerUtils xh_documentsPath];
+    NSString *documentsPath = [MMFileManagerUtils appDocumentsPath];
     
     [MMFileManagerUtils removeFile:[documentsPath stringByAppendingPathComponent:filename] completed:^(BOOL isRemoved, NSError *error) {
         if (complete) {
@@ -161,7 +161,7 @@
 
 + (void)createFolderAtDocuments:(NSString *)foldername completed:(void (^)(BOOL isCreated, NSError *error))complete {
     
-    NSString *documentsPath = [MMFileManagerUtils xh_documentsPath];
+    NSString *documentsPath = [MMFileManagerUtils appDocumentsPath];
     
     [MMFileManagerUtils createFolder:[documentsPath stringByAppendingPathComponent:foldername] completed:^(BOOL isCreated, NSError *error) {
         if (complete) {
@@ -192,7 +192,7 @@
 
 + (void)removeFolderAtDocuments:(NSString *)foldername completed:(void (^)(BOOL isRemoved, NSError *error))complete {
     
-    NSString *documentsPath = [MMFileManagerUtils xh_documentsPath];
+    NSString *documentsPath = [MMFileManagerUtils appDocumentsPath];
     
     [MMFileManagerUtils removeFile:[documentsPath stringByAppendingPathComponent:foldername] completed:^(BOOL isRemoved, NSError *error) {
         if (complete) {
@@ -249,7 +249,7 @@
     
 }
 
-+ (NSString *)xh_documentsPath {
++ (NSString *)appDocumentsPath {
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
@@ -257,14 +257,14 @@
     return documentsPath;
 }
 
-+ (NSString *)xh_cachePath {
++ (NSString *)appCachePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
     return cachePath;
 }
 
-+ (NSString *)xh_libraryPath {
++ (NSString *)appLibraryPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
@@ -274,7 +274,7 @@
 
 + (void)printFileListWithDocuments
 {
-    [MMFileManagerUtils printFileListWithFolderPath:[MMFileManagerUtils xh_documentsPath]];
+    [MMFileManagerUtils printFileListWithFolderPath:[MMFileManagerUtils appDocumentsPath]];
 }
 
 
@@ -288,7 +288,7 @@
 
 
 + (BOOL)fileExistAtDocuments:(NSString *)filename {
-    return [MMFileManagerUtils fileExist:[[MMFileManagerUtils xh_documentsPath] stringByAppendingPathComponent:filename]];
+    return [MMFileManagerUtils fileExist:[[MMFileManagerUtils appDocumentsPath] stringByAppendingPathComponent:filename]];
 }
 
 + (BOOL)fileExist:(NSString *)filepath {
