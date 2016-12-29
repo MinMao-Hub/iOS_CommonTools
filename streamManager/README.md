@@ -4,6 +4,9 @@
 1. [个人github](https://github.com/MinMao-Hub)
 2. [CDSN博客首页](http://blog.csdn.net/u012988591)
 
+
+[详细源码见github](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/streamManager)
+
 ```
 /**
  *    普通的写入方式大家都应该用过，就是用集合对象直接调用系统提供的方法来写入文件
@@ -43,7 +46,7 @@
 
 *PS: 其中`jsonObject`可以是：`NSDictionary`、`NSArray`、`NSString`等可属性列表(.plist)化的对象之一.*
 
-filepath必须为文件绝对路径，详细见源码[MMFileWRUtil.m]()，其中对Documents文件夹单独了一个方法`+ (void)writeJsonObject:(id)jsonObject IntoDocumentsFile:(NSString *)fileName`，只需要传入文件名即可。
+filepath必须为文件绝对路径，详细见源码[MMFileWRUtil.m](https://github.com/MinMao-Hub/iOS_CommonTools/blob/master/streamManager/MMFileWRUtil.m)，其中对Documents文件夹单独了一个方法`+ (void)writeJsonObject:(id)jsonObject IntoDocumentsFile:(NSString *)fileName`，只需要传入文件名即可。
 
 
 ####2. 从文件中读取出jsonObject
