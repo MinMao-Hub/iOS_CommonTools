@@ -6,6 +6,9 @@
 
 所以我这里简单的总结了一下文件存储可能会常用到的那块内容。有任何不足或者需要加强的地方，希望多多提意见，在下感激不尽...
 
+1. [个人github](https://github.com/MinMao-Hub)
+2. [CDSN博客首页](http://blog.csdn.net/u012988591)
+
 ###<center>大致目录如下
 ---
 ```
@@ -43,7 +46,7 @@
  
 ```
 
-[全部源码直接下载使用-github](http://www.baidu.com/index.html)
+[全部源码直接下载使用-github](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/fileManager)
 
 
 在这里创建了一个类 MMFileManagerUtils,下面代码每一个方法中都会有一个回调的block用来处理增、删、改文件是否成功，以及错误信息的返回。
@@ -84,7 +87,7 @@
 
 ```
 
- 这个是创建文件的主要代码，可直接拷贝使用，Documents下面的创建文件的方法`+ (void)createFileAtDocuments:(NSString *)filename  completed:(void (^)(BOOL isCreated, NSError *error))complete`衍生自上述这个方法，详细见源码[github](http://www.baidu.com/index.html),
+ 这个是创建文件的主要代码，可直接拷贝使用，Documents下面的创建文件的方法`+ (void)createFileAtDocuments:(NSString *)filename  completed:(void (^)(BOOL isCreated, NSError *error))complete`衍生自上述这个方法，详细见源码[github](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/fileManager),
 
  还有一种就是在创建文件的时候写入一些数据，这个方法`+ (void)createFile:(NSString *)filepath withObject:(id)dataObject completed:(void (^)(BOOL isCreated, NSError *error))complete`也可以自行查阅代码
 
@@ -225,7 +228,7 @@ Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments
 
 ```objective-c
 	
-+ (NSString *)xh_documentsPath {
++ (NSString *)appDocumentsPath {
     
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
@@ -238,7 +241,7 @@ Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments
 * Cache路径获取
 
 ```objective-c
-+ (NSString *)xh_cachePath {
++ (NSString *)appCachePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
@@ -250,7 +253,7 @@ Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments
 * library文件夹路径获取(存储程序的默认设置或其它状态信息)
 
 ```objective-c
-+ (NSString *)xh_libraryPath {
++ (NSString *)appLibraryPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
@@ -271,7 +274,7 @@ Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments
 ```
 + (void)printFileListWithDocuments
 {
-    [MMFileManagerUtils printFileListWithFolderPath:[MMFileManagerUtils xh_documentsPath]];
+    [MMFileManagerUtils printFileListWithFolderPath:[MMFileManagerUtils appDocumentsPath]];
 }
 ```
 
