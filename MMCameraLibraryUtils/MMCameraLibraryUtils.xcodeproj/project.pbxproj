@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		199C6F871E4C3FF8002AD221 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199C6F861E4C3FF8002AD221 /* MobileCoreServices.framework */; };
 		19C09A171E4AF32600BE9EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C09A161E4AF32600BE9EAB /* main.m */; };
 		19C09A1A1E4AF32600BE9EAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C09A191E4AF32600BE9EAB /* AppDelegate.m */; };
 		19C09A1D1E4AF32600BE9EAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C09A1C1E4AF32600BE9EAB /* ViewController.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		199C6F861E4C3FF8002AD221 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		19C09A121E4AF32600BE9EAB /* MMCameraLibraryUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMCameraLibraryUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C09A161E4AF32600BE9EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19C09A181E4AF32600BE9EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199C6F871E4C3FF8002AD221 /* MobileCoreServices.framework in Frameworks */,
 				A126E869AF07570468C93977 /* libPods-MMCameraLibraryUtils.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +131,7 @@
 		EEB0DDF723E69C984A214FDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				199C6F861E4C3FF8002AD221 /* MobileCoreServices.framework */,
 				8D230217C55FF434CE234231 /* libPods-MMCameraLibraryUtils.a */,
 			);
 			name = Frameworks;

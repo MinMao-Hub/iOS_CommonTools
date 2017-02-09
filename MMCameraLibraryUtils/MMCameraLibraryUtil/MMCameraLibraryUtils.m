@@ -16,7 +16,6 @@
 @property (nonatomic, copy) void (^videoBlock)(NSString *videoFilePath);
 @property (nonatomic, strong) UIViewController *parentViewController;
 
-@property (nonatomic, strong) AVCaptureSession * AVSession;//调用闪光灯的时候创建的类
 
 @end
 

@@ -25,7 +25,7 @@
  
  Usage
  ------
- 
+ [源码以及demo](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/MMCameraLibraryUtils)
  
  使用的时候只需要将`MMCameraLibraryUtils.{h,m}`两个文件拖入项目中即可
  
@@ -61,6 +61,7 @@
  ```
  
  直接将上述xml复制粘贴到info.plist文件中即可。
+ 
  
  API
  ------
