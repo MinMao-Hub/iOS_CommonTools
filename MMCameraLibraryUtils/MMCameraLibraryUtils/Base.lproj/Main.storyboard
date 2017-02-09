@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,147 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUV-IL-KCo">
+                                <rect key="frame" x="0.0" y="53" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.10759859770000001" blue="0.4354100695" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XFe-9O-BGy"/>
+                                </constraints>
+                                <state key="normal" title="弹出action来拍照或者选取相册图片">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionToSelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMv-50-mRP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWr-lG-Awu">
+                                <rect key="frame" x="0.0" y="103" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.25768141779999998" green="0.82456587960000005" blue="0.4354100695" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bCa-lF-7S5"/>
+                                </constraints>
+                                <state key="normal" title="直接打开相机拍照">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCameraGetPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GG0-H8-ffd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-Su-BHd">
+                                <rect key="frame" x="0.0" y="153" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Sf4-t2-FAf"/>
+                                </constraints>
+                                <state key="normal" title="直接选取相册图片">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openAlbumLibraryGetPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vkd-QG-fWx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyS-IC-xxm">
+                                <rect key="frame" x="0.0" y="203" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.53675881410000004" green="0.53675881410000004" blue="0.53675881410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rQa-L4-UJd"/>
+                                </constraints>
+                                <state key="normal" title="直接打开相机拍摄视频">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCameraGetVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MPg-lM-o6B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gq-kQ-2Ub">
+                                <rect key="frame" x="0.0" y="253" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.69019607839999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Xga-cT-vkD"/>
+                                </constraints>
+                                <state key="normal" title="从相册选取视频">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openAlbumLibrarygetVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1BX-6R-dzJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ7-7x-A33">
+                                <rect key="frame" x="0.0" y="368" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.25768141779999998" green="0.82456587960000005" blue="0.4354100695" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wkA-Cv-MmN"/>
+                                </constraints>
+                                <state key="normal" title="设置自定义UI">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentSelfDefineCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MFQ-Sq-IAl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通相机简单调用" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k7-5F-gBU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="w9t-vZ-bFB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自定义相机UI简单使用 设置完成之后继续使用以上操作即可查看自定义UI 取消即恢复到系统相机UI" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzd-np-pQK">
+                                <rect key="frame" x="0.0" y="311" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="lLg-Ye-5J6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ES-cc-zz2">
+                                <rect key="frame" x="9" y="426" width="357" height="221"/>
+                                <color key="backgroundColor" red="0.43011390417340933" green="0.67278640186846306" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jyS-IC-xxm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4aL-u4-pa2"/>
+                            <constraint firstItem="jyS-IC-xxm" firstAttribute="top" secondItem="1FW-Su-BHd" secondAttribute="bottom" id="5k2-fM-CoF"/>
+                            <constraint firstItem="9ES-cc-zz2" firstAttribute="top" secondItem="ZJ7-7x-A33" secondAttribute="bottom" constant="8" id="77Q-wW-bLN"/>
+                            <constraint firstItem="9ES-cc-zz2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="7tg-cv-JT8"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gq-kQ-2Ub" secondAttribute="trailing" id="ABF-nz-3At"/>
+                            <constraint firstItem="0Gq-kQ-2Ub" firstAttribute="top" secondItem="jyS-IC-xxm" secondAttribute="bottom" id="BNG-OM-A5n"/>
+                            <constraint firstItem="ZJ7-7x-A33" firstAttribute="top" secondItem="Yzd-np-pQK" secondAttribute="bottom" constant="1" id="Gc2-hd-91k"/>
+                            <constraint firstAttribute="trailing" secondItem="1k7-5F-gBU" secondAttribute="trailing" id="InJ-OS-3rZ"/>
+                            <constraint firstItem="YWr-lG-Awu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J14-YP-Njq"/>
+                            <constraint firstAttribute="trailing" secondItem="9ES-cc-zz2" secondAttribute="trailing" constant="9" id="K4h-dz-2ny"/>
+                            <constraint firstAttribute="trailing" secondItem="jyS-IC-xxm" secondAttribute="trailing" id="KmO-ce-IFy"/>
+                            <constraint firstAttribute="trailing" secondItem="Yzd-np-pQK" secondAttribute="trailing" id="LC3-ZV-gdN"/>
+                            <constraint firstItem="Yzd-np-pQK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PsD-lN-lg6"/>
+                            <constraint firstItem="0Gq-kQ-2Ub" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qm7-6Z-zF2"/>
+                            <constraint firstItem="YWr-lG-Awu" firstAttribute="top" secondItem="bUV-IL-KCo" secondAttribute="bottom" id="RyI-p1-G1m"/>
+                            <constraint firstItem="bUV-IL-KCo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TF9-vt-wyJ"/>
+                            <constraint firstItem="1k7-5F-gBU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VEz-DH-rY2"/>
+                            <constraint firstAttribute="trailing" secondItem="ZJ7-7x-A33" secondAttribute="trailing" id="Wes-z3-8Z6"/>
+                            <constraint firstItem="ZJ7-7x-A33" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YkK-fj-yq6"/>
+                            <constraint firstItem="1FW-Su-BHd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z0X-4T-hM9"/>
+                            <constraint firstItem="Yzd-np-pQK" firstAttribute="top" secondItem="0Gq-kQ-2Ub" secondAttribute="bottom" constant="8" id="ah5-VX-Gbg"/>
+                            <constraint firstItem="1k7-5F-gBU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cuZ-3W-xXM"/>
+                            <constraint firstItem="bUV-IL-KCo" firstAttribute="top" secondItem="1k7-5F-gBU" secondAttribute="bottom" constant="3" id="dmN-QE-SsO"/>
+                            <constraint firstAttribute="trailing" secondItem="bUV-IL-KCo" secondAttribute="trailing" id="hwa-4u-SlB"/>
+                            <constraint firstAttribute="trailing" secondItem="YWr-lG-Awu" secondAttribute="trailing" id="lYG-LZ-AWt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9ES-cc-zz2" secondAttribute="bottom" constant="20" id="nfb-d2-2JJ"/>
+                            <constraint firstItem="1FW-Su-BHd" firstAttribute="top" secondItem="YWr-lG-Awu" secondAttribute="bottom" id="uih-tE-Lee"/>
+                            <constraint firstAttribute="trailing" secondItem="1FW-Su-BHd" secondAttribute="trailing" id="xAD-pl-BIA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="testImageView" destination="9ES-cc-zz2" id="aGC-ta-Fcl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="148" y="88.605697151424295"/>
         </scene>
     </scenes>
 </document>

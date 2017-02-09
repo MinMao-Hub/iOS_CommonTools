@@ -12,11 +12,11 @@
 
 @interface MMCameraLibraryUtils()<UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) UIImagePickerController *imagePicker;
-
 @property (nonatomic, copy) void (^imagePickerBlock)(UIImage *image, NSDictionary *info);
 @property (nonatomic, copy) void (^videoBlock)(NSString *videoFilePath);
 @property (nonatomic, strong) UIViewController *parentViewController;
+
+@property (nonatomic, strong) AVCaptureSession * AVSession;//调用闪光灯的时候创建的类
 
 @end
 
@@ -31,6 +31,15 @@
         
         shareInstance.imagePicker = [[UIImagePickerController alloc] init];
         shareInstance.imagePicker.delegate = (id)shareInstance;
+        
+        
+//        CALayer *viewLayer = shareInstance.imagePicker.view.layer;
+//        
+//        [viewLayer setBounds:CGRectMake(0.0, 0.0, 125.0, 132.0)];
+//        [viewLayer setBackgroundColor:[UIColor blueColor].CGColor];
+//        [viewLayer setContentsRect:CGRectMake(0.0, 0.0, 115.0, 112.0)];
+//        [viewLayer setBorderWidth:.0];
+//        [viewLayer setBorderColor:[UIColor whiteColor].CGColor];
         
     });
     return shareInstance;
@@ -53,7 +62,8 @@
 }
 
 
-- (void)showActionSheetPicker:(void (^)(UIImage *image, NSDictionary *info))completeImage onTarget:(UIViewController *)parentViewController {
+- (void)showActionSheetPicker:(void (^)(UIImage *image, NSDictionary *info))completeImage
+                     onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择照片来源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -90,7 +100,9 @@
 }
 
 
-- (void)capturePhoto:(void (^)(UIImage *image, NSDictionary *info))completeImage isUseFrontDevice:(BOOL)isFront onTarget:(UIViewController *)parentViewController {
+- (void)capturePhoto:(void (^)(UIImage *image, NSDictionary *info))completeImage
+    isUseFrontDevice:(BOOL)isFront
+            onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     
@@ -117,7 +129,8 @@
     [self showImagePicker];
 }
 
-- (void)selectImageFromLibrary:(void (^)(UIImage *image, NSDictionary *info))completeImage onTarget:(UIViewController *)parentViewController {
+- (void)selectImageFromLibrary:(void (^)(UIImage *image, NSDictionary *info))completeImage
+                      onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     
@@ -141,7 +154,10 @@
     
 }
 
-- (void)captureVideoMaximumDuration:(NSTimeInterval)maximumDuration isUseFrontDevice:(BOOL)isFront onTarget:(UIViewController *)parentViewController captureComplete:(void (^)(NSString *videoFilePath))completeVideo {
+- (void)captureVideoMaximumDuration:(NSTimeInterval)maximumDuration
+                   isUseFrontDevice:(BOOL)isFront
+                           onTarget:(UIViewController *)parentViewController
+                    captureComplete:(void (^)(NSString *videoFilePath))completeVideo {
     
     self.parentViewController = parentViewController;
     
@@ -169,7 +185,8 @@
     [self showImagePicker];
 }
 
-- (void)selectVideoFromLibrary:(void (^)(NSString *videoFilePath))completeVideo onTarget:(UIViewController *)parentViewController {
+- (void)selectVideoFromLibrary:(void (^)(NSString *videoFilePath))completeVideo
+                      onTarget:(UIViewController *)parentViewController {
     self.parentViewController = parentViewController;
     
     if (completeVideo) {
@@ -318,12 +335,12 @@
 
 - (void)flashModeOn {
     
-    if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto || self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeOff) {
-        self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+    if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto) {
+        [self.imagePicker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
     }
     else
     {
-        self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+        [self.imagePicker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
     }
 }
 
@@ -337,6 +354,7 @@
 
 - (void)stopVideo {
     [self.imagePicker stopVideoCapture];
+    
 }
 
 @end

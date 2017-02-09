@@ -26,9 +26,11 @@
 
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface MMCameraLibraryUtils : NSObject
 
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) UIView *photoOverFlowView;   //拍照时自定义的覆盖视图
 @property (nonatomic, strong) UIView *videoOverFlowView;    //拍视频时自定义的覆盖视图
 
