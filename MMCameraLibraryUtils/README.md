@@ -26,7 +26,6 @@
  Usage
  ------
  
- [源码以及demo]()
  
  使用的时候只需要将`MMCameraLibraryUtils.{h,m}`两个文件拖入项目中即可
  
