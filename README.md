@@ -5,4 +5,5 @@
 3. [stream流操作文件](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/streamManager)
 4. [简单的延时操作](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/delayTask)
 5. [webView加进度条控制器](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/webView)
-6. 持续更新ing......
+6. [相机相册简单封装](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/MMCameraLibraryUtils)
+7. 持续更新ing......
