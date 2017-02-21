@@ -12,6 +12,8 @@
 	 *  4. 打开手机相册中选取视频
 	 *  5. 保存图片到相册图库中
 	 *  6. 保存视频到相册图库中
+	 *  7. 保存图片到沙盒
+	 *  8. 图片转换为Base64String
 	 *  
 	 * * * * 如果自定义覆盖页面的话，还需要以下功能需要去调用,具体用法见代码中的注释
  	 *  7. 切换前后摄像头
@@ -158,6 +160,18 @@ info信息里面包含如下数据，具体按照实际情况获取，若果未�
 
 ```
 - (void)saveVideoToAlbum:(NSString *)videoFilePath
+```
+
+* 保存图片到沙盒(Documents文件夹下面)
+
+```
+- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
+```
+
+* 图片转换为Base64String
+
+```
+- (NSString *)base64StringFromImage:(UIImage *)image
 ```
 
 * 切换前后摄像头
