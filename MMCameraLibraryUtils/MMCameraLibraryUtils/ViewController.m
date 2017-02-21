@@ -50,14 +50,22 @@
 }
 
 - (IBAction)openCameraGetPhoto:(id)sender {
+    __weak typeof(self) weakSelf = self;
     [[MMCameraLibraryUtils sharedInstance] capturePhoto:^(UIImage *image, NSDictionary *info) {
-        [_testImageView setImage:image];
+        
+        UIImage *aImage = [weakSelf subImageFromImage:image origin:CGPointMake(0, 0) size:CGSizeMake(357, 221)];
+        
+        [_testImageView setImage:aImage];
     } isUseFrontDevice:NO onTarget:self];
 }
 
 - (IBAction)openAlbumLibraryGetPhoto:(id)sender {
+    __weak typeof(self) weakSelf = self;
     [[MMCameraLibraryUtils sharedInstance] selectImageFromLibrary:^(UIImage *image, NSDictionary *info) {
-        [_testImageView setImage:image];
+        UIImage *aImage = [weakSelf subImageFromImage:image origin:CGPointMake(30, 30) size:CGSizeMake(357, 221)];
+        
+            [_testImageView setImage:aImage];
+
     } onTarget:self];
 }
 
@@ -152,4 +160,16 @@
 {
     [[[MMCameraLibraryUtils sharedInstance] imagePicker] dismissViewControllerAnimated:YES completion:NULL];
 }
+
+- (UIImage *)subImageFromImage:(UIImage *)image origin:(CGPoint)location size:(CGSize)subSize{
+    
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], CGRectMake(location.x, location.y, subSize.width * screenScale, subSize.height * screenScale));
+    UIImage *subImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return subImage;
+}
+
+
 @end
