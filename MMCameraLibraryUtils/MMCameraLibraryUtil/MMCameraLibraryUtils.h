@@ -16,21 +16,20 @@
  *   4. 打开手机相册中选取视频
  *   5. 保存图片到相册图库中
  *   6. 保存视频到相册图库中
+ *   7. 保存图片到沙盒
  *
  * * * 如果自定义覆盖页面的话，还需要以下功能需要去调用,具体用法见代码中的注释
- *   7. 切换前后摄像头
- *   8. 闪光灯打开与关闭
+ *   8. 切换前后摄像头
+ *   9. 闪光灯打开与关闭
  *
  *****************************************************
  */
 
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface MMCameraLibraryUtils : NSObject
 
-@property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) UIView *photoOverFlowView;   //拍照时自定义的覆盖视图
 @property (nonatomic, strong) UIView *videoOverFlowView;    //拍视频时自定义的覆盖视图
 
@@ -158,16 +157,23 @@
 - (void)saveVideoToAlbum:(NSString *)videoFilePath;
 
 
+/**
+ 7. 保存图片到沙盒
+ 
+ @param videoFilePath 视频绝对路径
+ */
+- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName;
+
 
 /**
- 7. 切换前后摄像头
+ 8. 切换前后摄像头
  */
 - (void)enchangeCameraDevice;
 
 
 
 /**
- 8. 打开与关闭闪光灯
+ 9. 打开与关闭闪光灯
 
  */
 - (void)flashModeOn;
@@ -187,4 +193,5 @@
 
 - (void)stopVideo;
 
+- (NSString *)base64StringFromImage:(UIImage *)image;
 @end

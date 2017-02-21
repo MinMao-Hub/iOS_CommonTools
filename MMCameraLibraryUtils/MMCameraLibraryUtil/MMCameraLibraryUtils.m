@@ -9,13 +9,15 @@
 #import "MMCameraLibraryUtils.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "DDUtils.h"
 
 @interface MMCameraLibraryUtils()<UIImagePickerControllerDelegate>
+
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @property (nonatomic, copy) void (^imagePickerBlock)(UIImage *image, NSDictionary *info);
 @property (nonatomic, copy) void (^videoBlock)(NSString *videoFilePath);
 @property (nonatomic, strong) UIViewController *parentViewController;
-
 
 @end
 
@@ -30,15 +32,6 @@
         
         shareInstance.imagePicker = [[UIImagePickerController alloc] init];
         shareInstance.imagePicker.delegate = (id)shareInstance;
-        
-        
-//        CALayer *viewLayer = shareInstance.imagePicker.view.layer;
-//        
-//        [viewLayer setBounds:CGRectMake(0.0, 0.0, 125.0, 132.0)];
-//        [viewLayer setBackgroundColor:[UIColor blueColor].CGColor];
-//        [viewLayer setContentsRect:CGRectMake(0.0, 0.0, 115.0, 112.0)];
-//        [viewLayer setBorderWidth:.0];
-//        [viewLayer setBorderColor:[UIColor whiteColor].CGColor];
         
     });
     return shareInstance;
@@ -61,8 +54,7 @@
 }
 
 
-- (void)showActionSheetPicker:(void (^)(UIImage *image, NSDictionary *info))completeImage
-                     onTarget:(UIViewController *)parentViewController {
+- (void)showActionSheetPicker:(void (^)(UIImage *image, NSDictionary *info))completeImage onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择照片来源" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -99,9 +91,7 @@
 }
 
 
-- (void)capturePhoto:(void (^)(UIImage *image, NSDictionary *info))completeImage
-    isUseFrontDevice:(BOOL)isFront
-            onTarget:(UIViewController *)parentViewController {
+- (void)capturePhoto:(void (^)(UIImage *image, NSDictionary *info))completeImage isUseFrontDevice:(BOOL)isFront onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     
@@ -128,8 +118,7 @@
     [self showImagePicker];
 }
 
-- (void)selectImageFromLibrary:(void (^)(UIImage *image, NSDictionary *info))completeImage
-                      onTarget:(UIViewController *)parentViewController {
+- (void)selectImageFromLibrary:(void (^)(UIImage *image, NSDictionary *info))completeImage onTarget:(UIViewController *)parentViewController {
     
     self.parentViewController = parentViewController;
     
@@ -153,10 +142,7 @@
     
 }
 
-- (void)captureVideoMaximumDuration:(NSTimeInterval)maximumDuration
-                   isUseFrontDevice:(BOOL)isFront
-                           onTarget:(UIViewController *)parentViewController
-                    captureComplete:(void (^)(NSString *videoFilePath))completeVideo {
+- (void)captureVideoMaximumDuration:(NSTimeInterval)maximumDuration isUseFrontDevice:(BOOL)isFront onTarget:(UIViewController *)parentViewController captureComplete:(void (^)(NSString *videoFilePath))completeVideo {
     
     self.parentViewController = parentViewController;
     
@@ -184,8 +170,7 @@
     [self showImagePicker];
 }
 
-- (void)selectVideoFromLibrary:(void (^)(NSString *videoFilePath))completeVideo
-                      onTarget:(UIViewController *)parentViewController {
+- (void)selectVideoFromLibrary:(void (^)(NSString *videoFilePath))completeVideo onTarget:(UIViewController *)parentViewController {
     self.parentViewController = parentViewController;
     
     if (completeVideo) {
@@ -320,6 +305,19 @@
     }
 }
 
+- (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
+{
+    NSData *imageData = UIImageJPEGRepresentation(currentImage, 0.5);
+    //获取沙盒Documents路径
+    NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    //定义图片存储路径
+    NSString *imageFullPath = [DocumentsPath stringByAppendingPathComponent:imageName];
+    
+    //将图片数据写入文件
+    [imageData writeToFile:imageFullPath atomically:NO];
+}
+
 - (void)enchangeCameraDevice {
     
     if (self.imagePicker.cameraDevice == UIImagePickerControllerCameraDeviceRear) {
@@ -334,12 +332,12 @@
 
 - (void)flashModeOn {
     
-    if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto) {
-        [self.imagePicker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
+    if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto || self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeOff) {
+        self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
     }
     else
     {
-        [self.imagePicker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
+        self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
     }
 }
 
@@ -353,7 +351,42 @@
 
 - (void)stopVideo {
     [self.imagePicker stopVideoCapture];
+}
+
+- (NSString *)base64StringFromImage:(UIImage *)image {
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
+    return [self base64forData:imageData];
+}
+
+- (NSString*)base64forData:(NSData*)theData {
+    
+    const uint8_t* input = (const uint8_t*)[theData bytes];
+    NSInteger length = [theData length];
+    
+    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    
+    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    uint8_t* output = (uint8_t*)data.mutableBytes;
+    
+    NSInteger i,i2;
+    for (i=0; i < length; i += 3) {
+        NSInteger value = 0;
+        for (i2=0; i2<3; i2++) {
+            value <<= 8;
+            if (i+i2 < length) {
+                value |= (0xFF & input[i+i2]);
+            }
+        }
+        
+        NSInteger theIndex = (i / 3) * 4;
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 }
 
 @end
