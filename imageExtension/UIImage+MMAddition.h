@@ -67,4 +67,12 @@
  */
 + (UIImage *)imageWithUIcolor:(UIColor *)color;
 
+/**
+ 用一种颜色创建一张图片
+ 
+ @param color `UIColor`对象
+ @param size  创建图片大小
+ @return `UIImage`对象
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 @end
