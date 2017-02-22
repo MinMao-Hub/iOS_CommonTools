@@ -48,7 +48,7 @@
     return [self colorWithPatternImage:image];
 }
 
-+ (UIImage *)imageWithUIcolor:(UIColor *)color {
++ (UIImage *)imageWithColor:(UIColor *)color {
     
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -62,7 +62,7 @@
 }
 
 + (UIImage *)imageWithHexString:(NSString *)hexString {
-    return [self imageWithUIcolor:[self colorWithHexString:hexString]];
+    return [self imageWithColor:[self colorWithHexString:hexString]];
 }
 
 

@@ -48,7 +48,7 @@
  @param color UIColor颜色对象
  @return UIImage对象
  */
-+ (UIImage *)imageWithUIcolor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 
 
