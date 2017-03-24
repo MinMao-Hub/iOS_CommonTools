@@ -1,6 +1,6 @@
-###`MMFileManagerUtils`
+### `MMFileManagerUtils`
 
-###概述
+### 概述
 
 在我们平常的开发中，文件的操作相对来说可能会比较少，但是这个东西也是需要去学习、去了解的；因为这个东西也是iOS开发中必不可少的一部分。有的时候当你对一个不是很了解的东西或者内容了解透彻的时候，内心就会有很大的满足感，亦或者是喜悦感吧，总想分享出自己的喜悦给大家。
 
@@ -9,7 +9,7 @@
 1. [个人github](https://github.com/MinMao-Hub)
 2. [CDSN博客首页](http://blog.csdn.net/u012988591)
 
-###<center>大致目录如下
+### <center>大致目录如下
 ---
 ```
 
@@ -55,7 +55,7 @@
 
 只列举上述目录中的部分功能点！！！详细的请查看源码。
 
-###1. 创建文件
+### 1. 创建文件
 
 ```objective-c
 
@@ -93,7 +93,7 @@
 
 ***PS：需要注意的一点是，该方法需要传入全路径，Documents下面只需要传入文件名即可*** 
 
-###2. 删除文件
+### 2. 删除文件
 
 ```objective-c
 
@@ -122,7 +122,7 @@
 
 从Documents下面删除文件的方法`+ (void)removeFileAtDocuments:(NSString *)filename completed:(void (^)(BOOL isRemoved, NSError *error))complete`也一样，只是我这边简单的拼接了一下Documents文件夹路径。
 
-###3. 重命名文件
+### 3. 重命名文件
 
 ```objective-c
 
@@ -161,7 +161,7 @@
 
 其中`filePath`必须为文件全路径，`newFileName； `可以为新文件的名字，也可以是新文件的全路径。
 
-###4. 创建文件夹
+### 4. 创建文件夹
 
 ```objective-c
 
@@ -187,7 +187,7 @@
 
 如上，便是创建文件夹的主要代码，可以直接使用，在Documents文件加下面创建问价夹的方法`+ (void)createFolderAtDocuments:(NSString *)foldername completed:(void (^)(BOOL isCreated, NSError *error))complete`也是在其上面简单的扩展，详细见源码[github](http://www.baidu.com/index.html)
 
-###5. 删除文件夹
+### 5. 删除文件夹
 
 ```objective-c
 
@@ -215,7 +215,7 @@
 
 Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments:(NSString *)foldername completed:(void (^)(BOOL isRemoved, NSError *error))complete`，同理。
 
-###6. 各种沙盒内目录路径获取
+### 6. 各种沙盒内目录路径获取
 * Home目录
 
 `NSString *homeDirectory = NSHomeDirectory();`
@@ -265,7 +265,7 @@ Documents文件夹下面删除文件夹的方法`+ (void)removeFolderAtDocuments
 
 
 
-###7. 打印文件夹下面的文件列表
+### 7. 打印文件夹下面的文件列表
 
  打印出来的结果是个字符串数组，主要还是方便调试文件的一些操作过程吧。
 

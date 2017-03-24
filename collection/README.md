@@ -1,12 +1,12 @@
-###常用集合对象相关总结
+### 常用集合对象相关总结
 
 
 
-###概述
+### 概述
 
 集合对象是开发过程中最常用到的东西，这里就相关内容简单的做一下总结。
 
-###1. 可属性列表化的对象有以下几种
+### 1. 可属性列表化的对象有以下几种
 
 |type||
 |---|---|
@@ -19,7 +19,7 @@
 |NSdate|时间|
 
 
-###1. jsonObject转换到NSString
+### 1. jsonObject转换到NSString
 
 ```objective-c
 - (NSString *) stringFromJsonObject:(id)object{

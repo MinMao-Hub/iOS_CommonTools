@@ -1,4 +1,4 @@
-###`iOS10`以后跳转系统设置的`URL-Scheme`
+### `iOS10`以后跳转系统设置的`URL-Scheme`
 
 在iOS10以后在APP内跳转系统某一项设置的话需要在原先`scheme`开头加上`app-`,并且之前的`scheme`首字母大写就可以正常跳转了。
 
@@ -21,7 +21,7 @@
 
 _以上所有`scheme`亲测可用_
 
-####调用姿势如下：
+#### 调用姿势如下：
 
 ```
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"app-Prefs:root=WIFI"]];

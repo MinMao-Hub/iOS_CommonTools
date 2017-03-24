@@ -1,4 +1,4 @@
-###`UIImage`图片存储以及各种转换
+### `UIImage`图片存储以及各种转换
 
 概述
 ------
@@ -16,7 +16,7 @@ API
 ------
 
 
-####1、 `UIImage`图片存储到沙盒Documents文件夹下面
+#### 1、 `UIImage`图片存储到沙盒Documents文件夹下面
 
 ```
 + (void) saveImage:(UIImage *)currentImage withName:(NSString *)imageName
@@ -34,7 +34,7 @@ API
 
 ```
 
-####2、 `UIImage`图片转换为Base64String
+#### 2、 `UIImage`图片转换为Base64String
 
 ```
 + (NSString *)base64StringFromImage:(UIImage *)image {
@@ -76,7 +76,7 @@ API
 ```
 
 
-####3、 从Base64String生成图片
+#### 3、 从Base64String生成图片
 
 ```
 + (UIImage *)imageWithBase64String:(NSString *)base64Str
@@ -101,7 +101,7 @@ API
 
 ```
 
-####4、用`UIColor`生成一张纯色图片
+#### 4、用`UIColor`生成一张纯色图片
 
 ```
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size

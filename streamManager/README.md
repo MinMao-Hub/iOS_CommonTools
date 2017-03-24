@@ -1,4 +1,4 @@
-##文件写入与读出（read and write）
+## 文件写入与读出（read and write）
 
 
 1. [个人github](https://github.com/MinMao-Hub)
@@ -20,9 +20,9 @@
 
 ```
 
-###NSInputStream、NSOutputStream两个流对象的简单使用
+### NSInputStream、NSOutputStream两个流对象的简单使用
 
-####1. 将一个jsonObject写入到文件中
+#### 1. 将一个jsonObject写入到文件中
 
 ```objective-c
 + (void)writeJsonObject:(id)object intoFile:(NSString *)filePath {
@@ -49,7 +49,7 @@
 filepath必须为文件绝对路径，详细见源码[MMFileWRUtil.m](https://github.com/MinMao-Hub/iOS_CommonTools/blob/master/streamManager/MMFileWRUtil.m)，其中对Documents文件夹单独了一个方法`+ (void)writeJsonObject:(id)jsonObject IntoDocumentsFile:(NSString *)fileName`，只需要传入文件名即可。
 
 
-####2. 从文件中读取出jsonObject
+#### 2. 从文件中读取出jsonObject
 
 ```objective-c
 + (id)readObjectFromFile:(NSString *)filePath {

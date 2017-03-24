@@ -1,4 +1,4 @@
-###UIColor转换以及简单扩展
+### UIColor转换以及简单扩展
 
 
 概述
@@ -21,7 +21,7 @@ API
 ------
 
 
-####1、***+ (UIColor *)colorWithHexString:(NSString *)hexString***
+#### 1、***+ (UIColor *)colorWithHexString:(NSString *)hexString***
 
 通过16进制hexString色值直接获取`UIColor`对象
 
@@ -64,7 +64,7 @@ API
 ```
 
 
-####2、***+ (UIColor *)colorWithUIImage:(UIImage *)image***
+#### 2、***+ (UIColor *)colorWithUIImage:(UIImage *)image***
 
 从一张纯色图获取颜色
 
@@ -77,7 +77,7 @@ API
 ```
 
 
-####3、***+ (UIImage *)imageWithColor:(UIColor *)color***
+#### 3、***+ (UIImage *)imageWithColor:(UIColor *)color***
 
 由`UIColor`颜色获取`UIImage`对象
 
@@ -98,7 +98,7 @@ API
 ```
 
 
-####4、***+ (UIImage *)imageWithHexString:(NSString *)hexString***
+#### 4、***+ (UIImage *)imageWithHexString:(NSString *)hexString***
 
 
 由16进制`HexString`颜色获取`UIImage`对象
