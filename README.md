@@ -14,4 +14,12 @@
 |10|iOS10系统URL-Scheme跳转|无|[点击查看](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/systemScheme)||
 |11|文档阅读器`UIDocumentViewControler`简单使用|无|[点击查看](https://github.com/MinMao-Hub/readDoc)||
 |12|可吸附在边缘的悬浮小按钮|`SuspendButtonViewController`|[点击查看](https://github.com/MinMao-Hub/suspendButtonDemo)||
-|13|更新中...||
+|13|银行卡号简单的格式化显示处理（支付宝、微信绑定卡列表显示卡号）|`MMBankCardNoMask`|[点击查看](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/bankCardNoFormat)||
+|14|更新中...||
+
+
+### 关于
+
+1. [个人github](https://github.com/MinMao-Hub)
+2. [CDSN博客首页](http://blog.csdn.net/u012988591)
+3. Q:1286090267

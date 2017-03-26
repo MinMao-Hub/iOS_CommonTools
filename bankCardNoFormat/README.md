@@ -141,9 +141,11 @@
 [下载源码](https://github.com/MinMao-Hub/iOS_CommonTools/tree/master/bankCardNoFormat) 然后将文件`MMBankCardNoMask.{h,m}`拷贝到项目中，导入`#import "MMBankCardNoMask.h"`
 
 调用方法如下:
+
 ![调用代码方法](http://img.blog.csdn.net/20170326162047178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjk4ODU5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 打印结果如下：
+
 ![这里写图片描述](http://img.blog.csdn.net/20170326162354929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjk4ODU5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
